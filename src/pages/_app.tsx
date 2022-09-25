@@ -7,7 +7,7 @@ import calcTime from '@/utils/calc-time';
 
 import HeroBgImg from '../../public/assets/images/slums.jpeg';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <section className="grid h-screen place-items-center bg-amber-50">
       {/* Header */}
@@ -24,7 +24,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           {/* Content */}
           <Component {...pageProps} />
         </div>
-        <p className="mt-1 font-semibold lowercase">Chicago | {calcTime(-5)}</p>
+        <p className="mt-1 font-semibold lowercase tracking-wider">
+          Chicago | {calcTime(-5)}
+        </p>
       </div>
       {/* Background image */}
       <Image
@@ -41,4 +43,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default App;
