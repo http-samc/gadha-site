@@ -1,13 +1,18 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import getColorSwatch from '@/utils/get-color-swatch';
 
 const ProductPreview = (product: ShopifyBuy.Product) => {
   const [currentImage, setCurrentImage] = React.useState(0);
+  const router = useRouter();
 
   return (
-    <div className="relative h-[250px] w-[200px] cursor-pointer flex-col items-center rounded bg-amber-50 p-4 transition-all hover:scale-[1.05]">
+    <div
+      onClick={() => router.push(`/shop/${product.id}`)}
+      className="relative h-[250px] w-[200px] cursor-pointer flex-col items-center rounded bg-amber-50 p-4 transition-all hover:scale-[1.05]"
+    >
       <div className="absolute top-0 right-0 z-10 rounded bg-amber-200 px-4">
         <p className="text-center font-semibold uppercase">
           {product.variants[0]?.price!.split('.')[0]}
