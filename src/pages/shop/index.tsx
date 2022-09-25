@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const index = () => {
+import ProductPreview from '@/components/ProductPreview';
+import shopify from '@/utils/shopify';
+
+const Shop = () => {
+  const [loading, setLoading] = React.useState(true);
+  const [products, setProducts] = React.useState<ShopifyBuy.Product[]>([]);
+  // const [page, setPage] = React.useState(1);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    const freshProducts = await shopify.product.fetchAll();
+    setProducts(freshProducts);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
-    <div className="h-[600px] w-[600px] rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md">
-      index
+    <div className="h-[600px] w-[700px] rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md">
+      {loading && <p>Loading...</p>}
+      {products.map((product) => {
+        return <ProductPreview key={product.id} {...product} />;
+      })}
     </div>
   );
 };
 
-export default index;
+export default Shop;
