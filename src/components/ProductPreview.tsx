@@ -16,7 +16,7 @@ const ProductPreview = (product: ShopifyBuy.Product) => {
         />
       </div>
       <h4 className="font-mono text-sm lowercase">{product.title}</h4>
-      <div className="mt-1 flex w-full items-center justify-start space-x-2">
+      <div className="mt-1 flex w-full flex-wrap items-center justify-start space-x-2">
         {product.options.map((option) => {
           if (option.name === 'Size') {
             return (
