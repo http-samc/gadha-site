@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       {/* Header */}
       <div className="z-10 mx-auto flex-col items-center">
         <div className="flex flex-col">
-          <div className="mb-2 select-none border-b-4 border-stone-400 text-center">
+          <div className="mx-auto mb-2 max-w-[200px] select-none border-b-4 border-stone-400 text-center">
             <h1 className="text-3xl font-bold uppercase italic">
               Gadha&#8482;
             </h1>
@@ -24,7 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           {/* Content */}
           <Component {...pageProps} />
         </div>
-        <p className="mt-1 font-semibold lowercase tracking-wider">
+        <p className="mt-1 text-center font-semibold lowercase tracking-wider">
           Chicago | {calcTime(-5)}
         </p>
       </div>
