@@ -34,16 +34,18 @@ const App = ({ Component, pageProps }: AppProps) => {
           </p>
         </div>
         {/* Background image */}
-        <Image
-          className="absolute opacity-10 grayscale"
-          src={HeroBgImg}
-          alt="hero"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          draggable={false}
-          priority
-        />
+        <div className="absolute h-screen w-full">
+          <Image
+            className="opacity-10 grayscale"
+            src={HeroBgImg}
+            alt="hero"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            draggable={false}
+            priority
+          />
+        </div>
       </section>
     </CheckoutContext.Provider>
   );

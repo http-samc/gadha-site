@@ -5,7 +5,6 @@ import React from 'react';
 import getColorSwatch from '@/utils/get-color-swatch';
 
 const ProductPreview = (product: ShopifyBuy.Product) => {
-  const [currentImage, setCurrentImage] = React.useState(0);
   const router = useRouter();
 
   return (
@@ -16,20 +15,17 @@ const ProductPreview = (product: ShopifyBuy.Product) => {
       className="relative h-[250px] w-[200px] cursor-pointer flex-col items-center rounded bg-amber-50 p-4 transition-all lg:hover:scale-[1.05]"
     >
       <div className="absolute top-0 right-0 z-10 rounded bg-amber-200 px-4">
-        <p className="text-center font-semibold uppercase">
+        <p className="text-center font-mono font-semibold uppercase">
           {product.variants[0]?.price!.split('.')[0]}
         </p>
       </div>
       <div className="flex justify-center">
         <Image
-          src={product.images[currentImage]!.src}
+          src={product.images[0]!.src}
           alt={product.title}
           width={150}
           height={150}
           className="mix-blend-multiply"
-          onClick={() =>
-            setCurrentImage((prev) => (prev + 1) % product.images.length)
-          }
           draggable={false}
         />
       </div>

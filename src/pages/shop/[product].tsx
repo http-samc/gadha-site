@@ -63,7 +63,7 @@ const Product = () => {
   }, [pidNum]);
 
   return (
-    <div className="relative w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
+    <div className="relative w-screen rounded-xl border border-amber-50/30 bg-amber-50/10 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
       <button
         className="absolute top-2 left-3 font-mono font-bold transition-all hover:-translate-x-1"
         onClick={() => router.back()}
@@ -85,7 +85,7 @@ const Product = () => {
             draggable={false}
           />
         </div>
-        <div className="grid gap-2 lg:grid-cols-2">
+        <div className="flex space-x-2 lg:grid lg:flex-none lg:grid-cols-2 lg:gap-2 lg:space-x-0">
           {product?.images.map((image, index) => {
             return (
               <div
