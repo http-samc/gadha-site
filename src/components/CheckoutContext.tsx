@@ -1,9 +1,9 @@
 import { createContext } from 'react';
+import type ShopifyBuy from 'shopify-buy';
 
 interface ICheckoutContext {
-  checkout?: string;
-  card?: string;
-  cart_contents?: {
+  checkout?: ShopifyBuy.Cart;
+  cart?: {
     variant?: string;
     quantity?: number;
   }[];

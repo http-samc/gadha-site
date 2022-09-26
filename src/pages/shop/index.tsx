@@ -20,7 +20,7 @@ const Shop = () => {
   }, []);
 
   return (
-    <div className="w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md lg:h-[600px] lg:w-[700px]">
+    <div className="w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
       {loading && <p>Loading...</p>}
       {products.map((product) => {
         return <ProductPreview key={product.id} {...product} />;

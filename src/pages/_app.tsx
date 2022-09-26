@@ -32,7 +32,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </div>
         {/* Background image */}
         <Image
-          className="opacity-10 grayscale"
+          className="absolute opacity-10 grayscale"
           src={HeroBgImg}
           alt="hero"
           layout="fill"

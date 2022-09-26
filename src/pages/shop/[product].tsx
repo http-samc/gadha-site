@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 
+import CheckoutContext from '@/components/CheckoutContext';
 import shopify from '@/utils/shopify';
 
 export interface IProductSelection {
-  color?: string;
-  size?: string;
-  variant?: string;
-  imageIndex: number;
+  [key: string]: any;
 }
 
 const Product = () => {
@@ -16,12 +14,47 @@ const Product = () => {
   const { product: pidNum } = router.query;
   const pid = btoa(`gid://shopify/Product/${pidNum}`);
   const [product, setProduct] = React.useState<ShopifyBuy.Product | null>(null);
+  const [imageIndex, setImageIndex] = React.useState(0);
   const [currentSelection, setCurrentSelection] =
-    React.useState<IProductSelection>({ imageIndex: 0 });
+    React.useState<IProductSelection>({});
 
   const fetchProductDetails = async () => {
     const productDetails = await shopify.product.fetch(pid as string);
     setProduct(productDetails);
+  };
+
+  const checkoutContext = useContext(CheckoutContext);
+
+  const addToCart = async () => {
+    const checkout =
+      checkoutContext.checkout || (await shopify.checkout.create());
+    let VARIANT: string | null = null;
+    product?.variants.forEach((variant: ShopifyBuy.ProductVariant) => {
+      const options: { name: string; value: string }[] =
+        variant.attrs!.selectedOptions;
+
+      for (let i = 0; i < options.length; i += 1) {
+        // @ts-ignore
+        if (options[i].value !== currentSelection[options[i].name]) {
+          return;
+        }
+      }
+
+      VARIANT = variant.id as string;
+    });
+    if (!VARIANT) return;
+    const lineItemsToAdd = [
+      {
+        variantId: VARIANT,
+        quantity: 1,
+      },
+    ];
+    const newCheckout = await shopify.checkout.addLineItems(
+      checkout.id,
+      lineItemsToAdd
+    );
+    checkoutContext.checkout = newCheckout;
+    console.log(checkoutContext.checkout.webUrl);
   };
 
   useEffect(() => {
@@ -29,7 +62,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="relative w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md lg:h-[600px] lg:w-[700px]">
+    <div className="relative w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
       <button
         className="absolute top-2 left-3 font-mono font-bold transition-all hover:-translate-x-1"
         onClick={() => router.back()}
@@ -43,7 +76,7 @@ const Product = () => {
       <div className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-2">
         <div className="flex w-full flex-col items-center justify-center bg-amber-50 lg:w-1/2">
           <Image
-            src={product?.images[currentSelection.imageIndex]!.src || ''}
+            src={product?.images[imageIndex]!.src || ''}
             alt={product?.title || ''}
             width={500}
             height={500}
@@ -65,12 +98,7 @@ const Product = () => {
                   height={50}
                   className="cursor-pointer mix-blend-multiply"
                   draggable={false}
-                  onClick={() =>
-                    setCurrentSelection({
-                      ...currentSelection,
-                      imageIndex: index,
-                    })
-                  }
+                  onClick={() => setImageIndex(index)}
                 />
               </div>
             );
@@ -94,27 +122,45 @@ const Product = () => {
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
             03. Execution
           </h4>
-          <div className="mr-2 space-x-2">
-            {product?.options.map((option) => {
-              return (
-                <select
-                  key={option.name}
-                  className="rounded bg-amber-50 py-[5px] font-mono text-sm lowercase focus:outline-none"
-                >
-                  {option.values.map(({ value }) => {
-                    return (
-                      <option key={value} value={value}>
-                        {value}
-                      </option>
-                    );
-                  })}
-                </select>
-              );
-            })}
+          <div className="flex">
+            <div className="mr-2 space-x-2">
+              {product?.options.map((option) => {
+                return (
+                  <select
+                    key={option.name}
+                    className="rounded bg-amber-50 py-[5px] font-mono text-sm lowercase focus:outline-none"
+                    onChange={(e) =>
+                      setCurrentSelection({
+                        ...currentSelection,
+                        [option.name]: e.target.value,
+                      })
+                    }
+                    defaultValue="placeholder"
+                  >
+                    <option disabled value="placeholder">
+                      {option.name}
+                    </option>
+                    {option.values.map(({ value }) => {
+                      return (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      );
+                    })}
+                  </select>
+                );
+              })}
+            </div>
+            <button
+              // disabled={
+              //   product?.options.length !== Object.keys(currentSelection).length
+              // }
+              onClick={addToCart}
+              className="max-w-[150px] rounded-lg bg-amber-300/75 px-3 py-1 font-mono text-sm text-white transition-all hover:bg-amber-300"
+            >
+              Add to Cart
+            </button>
           </div>
-          <button className="max-w-[150px] rounded-lg bg-amber-300/75 px-3 py-1 font-mono text-sm text-white transition-all hover:bg-amber-300">
-            Add to Cart
-          </button>
         </div>
       </div>
     </div>

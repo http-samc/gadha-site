@@ -13,7 +13,7 @@ const ProductPreview = (product: ShopifyBuy.Product) => {
       onClick={() =>
         router.push(`/shop/${(product.id as string).split('/').pop()}`)
       }
-      className="relative h-[250px] w-[200px] cursor-pointer flex-col items-center rounded bg-amber-50 p-4 transition-all hover:scale-[1.05]"
+      className="relative h-[250px] w-[200px] cursor-pointer flex-col items-center rounded bg-amber-50 p-4 transition-all lg:hover:scale-[1.05]"
     >
       <div className="absolute top-0 right-0 z-10 rounded bg-amber-200 px-4">
         <p className="text-center font-semibold uppercase">
