@@ -34,7 +34,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             {/* Content */}
             <Component {...pageProps} />
           </div>
-          <p className="mt-1 text-center font-semibold lowercase tracking-wider">
+          <p className="mt-1 text-center font-mono text-sm font-semibold lowercase tracking-wider">
             Chicago | {calcTime(-5)}
           </p>
         </div>

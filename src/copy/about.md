@@ -1,5 +1,9 @@
 # 01. Vision
 
+| Table | Value |
+| --- | --- |
+| foo | `bar` |
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam tempus, ultrices elit vel, egestas purus. Vestibulum a turpis ligula. Integer sagittis, felis quis condimentum tempus, risus erat interdum libero, et facilisis magna arcu non turpis. Morbi sed urna lacinia nisl ornare molestie. Nam quis ex imperdiet, pellentesque diam at, viverra sapien. Ut mi nisi, consequat eget diam at, sollicitudin lacinia odio. Maecenas pretium nisl sit amet fringilla mollis. Sed iaculis neque nec risus porttitor vulputate. Duis elementum ultrices aliquet.
 
 Nulla porta orci sed augue egestas mollis. Nulla sed mi dapibus, fermentum turpis et, condimentum mi. Nullam feugiat risus turpis. Vestibulum sed arcu semper, tristique ipsum et, tincidunt lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in sollicitudin orci. Suspendisse fringilla neque lacinia quam laoreet, vel placerat odio tempus. Proin at gravida neque, at volutpat tellus. Nullam vitae mi ac elit blandit aliquam. Phasellus suscipit posuere faucibus. Fusce rutrum a sem vitae sagittis. Aenean eu tellus at ante molestie consectetur. Morbi rhoncus posuere ante. Nunc luctus eros eu risus varius, gravida porta leo sagittis. Aliquam egestas eros neque, ut fermentum tellus lacinia quis.
