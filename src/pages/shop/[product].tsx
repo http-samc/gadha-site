@@ -29,7 +29,13 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md lg:h-[600px] lg:w-[700px]">
+    <div className="relative w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md lg:h-[600px] lg:w-[700px]">
+      <button
+        className="absolute top-2 left-3 font-mono font-bold transition-all hover:-translate-x-1"
+        onClick={() => router.back()}
+      >
+        {'<-'}
+      </button>
       <div className="flex items-center justify-between font-mono text-xl lowercase lg:text-3xl">
         <h1 className="">{product?.title}</h1>
         <h3 className="text-amber-400">{product?.variants[0]?.price}</h3>
@@ -88,6 +94,24 @@ const Product = () => {
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
             03. Execution
           </h4>
+          <div className="mr-2 space-x-2">
+            {product?.options.map((option) => {
+              return (
+                <select
+                  key={option.name}
+                  className="rounded bg-amber-50 py-[5px] font-mono text-sm lowercase focus:outline-none"
+                >
+                  {option.values.map(({ value }) => {
+                    return (
+                      <option key={value} value={value}>
+                        {value}
+                      </option>
+                    );
+                  })}
+                </select>
+              );
+            })}
+          </div>
           <button className="max-w-[150px] rounded-lg bg-amber-300/75 px-3 py-1 font-mono text-sm text-white transition-all hover:bg-amber-300">
             Add to Cart
           </button>
