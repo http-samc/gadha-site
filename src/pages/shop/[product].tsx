@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
@@ -153,11 +154,21 @@ const Product = () => {
               })}
             </div>
             <button
-              // disabled={
-              //   product?.options.length !== Object.keys(currentSelection).length
-              // }
+              disabled={
+                product?.options.length !== Object.keys(currentSelection).length
+              }
               onClick={addToCart}
-              className="max-w-[150px] rounded-lg bg-amber-300/75 px-3 py-1 font-mono text-sm text-white transition-all hover:bg-amber-300"
+              className={clsx(
+                'max-w-[150px] rounded-lg  px-3 py-1 font-mono text-sm text-white transition-all ',
+                {
+                  'cursor-not-allowed bg-stone-400':
+                    product?.options.length !==
+                    Object.keys(currentSelection).length,
+                  'bg-amber-300/75 hover:bg-amber-300':
+                    product?.options.length ===
+                    Object.keys(currentSelection).length,
+                }
+              )}
             >
               Check Out
             </button>
