@@ -8,7 +8,7 @@ class GadhaDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
+        <Head title="Gadha" />
         <body className="cursor-crosshair bg-amber-50 text-black">
           <Main />
           <NextScript />
