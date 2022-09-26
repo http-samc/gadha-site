@@ -2,6 +2,7 @@ import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 import Image from 'next/image';
+import React, { useState } from 'react';
 
 import CheckoutContext from '@/components/CheckoutContext';
 import calcTime from '@/utils/calc-time';
@@ -9,8 +10,10 @@ import calcTime from '@/utils/calc-time';
 import HeroBgImg from '../../public/assets/images/slums.jpeg';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const [checkout, setCheckout] = useState<ShopifyBuy.Cart | null>(null);
+
   return (
-    <CheckoutContext.Provider value={{}}>
+    <CheckoutContext.Provider value={{ checkout, setCheckout }}>
       <section className="grid h-screen place-items-center bg-amber-50">
         {/* Header */}
         <div className="z-10 mx-auto flex-col items-center">

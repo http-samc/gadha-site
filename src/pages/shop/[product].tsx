@@ -12,14 +12,13 @@ export interface IProductSelection {
 const Product = () => {
   const router = useRouter();
   const { product: pidNum } = router.query;
-  const pid = btoa(`gid://shopify/Product/${pidNum}`);
   const [product, setProduct] = React.useState<ShopifyBuy.Product | null>(null);
   const [imageIndex, setImageIndex] = React.useState(0);
   const [currentSelection, setCurrentSelection] =
     React.useState<IProductSelection>({});
 
-  const fetchProductDetails = async () => {
-    const productDetails = await shopify.product.fetch(pid as string);
+  const fetchProductDetails = async (pid: string) => {
+    const productDetails = await shopify.product.fetch(pid);
     setProduct(productDetails);
   };
 
@@ -53,13 +52,15 @@ const Product = () => {
       checkout.id,
       lineItemsToAdd
     );
-    checkoutContext.checkout = newCheckout;
-    console.log(checkoutContext.checkout.webUrl);
+    checkoutContext.setCheckout!(newCheckout);
+    router.push(newCheckout.webUrl as string, '/checkout');
   };
 
   useEffect(() => {
-    fetchProductDetails();
-  }, []);
+    if (!pidNum) return;
+    const pid = btoa(`gid://shopify/Product/${pidNum}`);
+    fetchProductDetails(pid);
+  }, [pidNum]);
 
   return (
     <div className="relative w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
@@ -128,7 +129,7 @@ const Product = () => {
                 return (
                   <select
                     key={option.name}
-                    className="rounded bg-amber-50 py-[5px] font-mono text-sm lowercase focus:outline-none"
+                    className="rounded border border-amber-100 bg-amber-100/50 py-[5px] font-mono text-sm lowercase focus:outline-none"
                     onChange={(e) =>
                       setCurrentSelection({
                         ...currentSelection,
@@ -158,7 +159,7 @@ const Product = () => {
               onClick={addToCart}
               className="max-w-[150px] rounded-lg bg-amber-300/75 px-3 py-1 font-mono text-sm text-white transition-all hover:bg-amber-300"
             >
-              Add to Cart
+              Check Out
             </button>
           </div>
         </div>
