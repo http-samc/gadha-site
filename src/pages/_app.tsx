@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import CheckoutContext from '@/components/CheckoutContext';
 import calcTime from '@/utils/calc-time';
 
-import HeroBgImg from '../../public/assets/images/slums.jpeg';
+import HeroBgImg from '../../public/assets/images/hero.jpeg';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [checkout, setCheckout] = useState<ShopifyBuy.Cart | null>(null);
@@ -41,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         {/* Background image */}
         <div className="absolute h-screen w-full">
           <Image
-            className="opacity-10 grayscale"
+            className="opacity-[15%] grayscale"
             src={HeroBgImg}
             alt="hero"
             layout="fill"
