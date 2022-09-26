@@ -2,6 +2,7 @@ import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 import CheckoutContext from '@/components/CheckoutContext';
@@ -11,6 +12,7 @@ import HeroBgImg from '../../public/assets/images/slums.jpeg';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [checkout, setCheckout] = useState<ShopifyBuy.Cart | null>(null);
+  const router = useRouter();
 
   return (
     <CheckoutContext.Provider value={{ checkout, setCheckout }}>
@@ -18,7 +20,10 @@ const App = ({ Component, pageProps }: AppProps) => {
         {/* Header */}
         <div className="z-10 mx-auto flex-col items-center">
           <div className="flex flex-col">
-            <div className="mx-auto mb-2 max-w-[200px] select-none border-b-4 border-stone-400 text-center">
+            <div
+              className="mx-auto mb-2 max-w-[200px] cursor-pointer select-none border-b-4 border-stone-400 text-center"
+              onClick={() => router.push('/')}
+            >
               <h1 className="text-3xl font-bold uppercase italic">
                 Gadha&#8482;
               </h1>

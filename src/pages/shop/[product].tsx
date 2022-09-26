@@ -159,7 +159,7 @@ const Product = () => {
               }
               onClick={addToCart}
               className={clsx(
-                'max-w-[150px] rounded-lg  px-3 py-1 font-mono text-sm text-white transition-all ',
+                'max-w-[150px] rounded-lg  px-3 py-1 font-mono text-sm text-white transition-all',
                 {
                   'cursor-not-allowed bg-stone-400':
                     product?.options.length !==

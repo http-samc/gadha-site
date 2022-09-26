@@ -41,5 +41,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],
 };
