@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import Skeleton from 'react-loading-skeleton';
 
 import shopify from '@/utils/shopify';
 
@@ -32,10 +31,8 @@ const Product = () => {
   return (
     <div className="w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all hover:backdrop-blur-md lg:h-[600px] lg:w-[700px]">
       <div className="flex items-center justify-between font-mono text-xl lowercase lg:text-3xl">
-        <h1 className="">{product?.title || <Skeleton />}</h1>
-        <h3 className="text-amber-400">
-          {product?.variants[0]?.price || <Skeleton />}
-        </h3>
+        <h1 className="">{product?.title}</h1>
+        <h3 className="text-amber-400">{product?.variants[0]?.price}</h3>
       </div>
       <div className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-2">
         <div className="flex w-full flex-col items-center justify-center bg-amber-50 lg:w-1/2">
@@ -79,17 +76,13 @@ const Product = () => {
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
             01. Vision
           </h4>
-          <p className="text-sm lowercase">
-            {product?.description || <Skeleton count={3} />}
-          </p>
+          <p className="text-sm lowercase">{product?.description}</p>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start">
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
             02. Collection
           </h4>
-          <p className="text-sm lowercase">
-            {'Fall/Winter 2022' || <Skeleton />}
-          </p>
+          <p className="text-sm lowercase">{'Fall/Winter 2022'}</p>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start">
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
