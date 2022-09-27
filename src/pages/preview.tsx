@@ -23,7 +23,7 @@ const Preview = ({ content }: PreviewProps) => {
   return (
     <div
       ref={textParent}
-      className="prose relative grid w-screen overflow-y-auto rounded-xl border border-amber-50/30 bg-amber-50/10 p-8 font-mono backdrop-blur-sm transition-all scrollbar scrollbar-thumb-amber-50 md:grid-cols-2 lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md"
+      className="prose relative grid h-[600px] w-screen overflow-y-auto rounded-xl border border-amber-50/30 bg-amber-50/10 p-8 font-mono backdrop-blur-sm transition-all scrollbar scrollbar-thumb-amber-50 md:grid-cols-2 lg:w-[700px] lg:hover:backdrop-blur-md"
     />
   );
 };

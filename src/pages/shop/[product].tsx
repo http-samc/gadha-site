@@ -64,7 +64,7 @@ const Product = () => {
   }, [pidNum]);
 
   return (
-    <div className="relative w-screen rounded-xl border border-amber-50/30 bg-amber-50/10 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md">
+    <div className="relative w-screen rounded-xl border-amber-50/30 bg-amber-50/10 p-8 transition-all lg:h-[600px] lg:w-[700px] lg:border lg:backdrop-blur-sm lg:hover:backdrop-blur-md">
       <button
         className="absolute top-2 left-3 font-mono font-bold transition-all hover:-translate-x-1"
         onClick={() => router.back()}
@@ -107,8 +107,8 @@ const Product = () => {
           })}
         </div>
       </div>
-      <div className="mt-4 flex flex-col space-y-2">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+      <div className="mt-4 flex flex-col space-y-4">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
           <h4 className="text-lg font-bold lowercase lg:min-w-[320px] lg:text-xl">
             01. Vision
           </h4>

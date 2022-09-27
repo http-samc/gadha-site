@@ -23,7 +23,7 @@ const Shop = () => {
   return (
     <div
       className={clsx(
-        'w-screen rounded-xl border border-amber-50/30 p-8 backdrop-blur-sm transition-all lg:h-[600px] lg:w-[700px] lg:hover:backdrop-blur-md',
+        'relative h-[600px] w-screen overflow-y-auto rounded-xl border-amber-50/30 bg-amber-50/10 p-8 transition-all lg:w-[700px] lg:border lg:backdrop-blur-sm lg:hover:backdrop-blur-md',
         {
           'flex h-[316px] items-center justify-center': loading,
           'grid grid-cols-1 place-items-center gap-4 overflow-y-auto scrollbar scrollbar-thumb-amber-50 md:grid-cols-2 lg:grid-cols-3':
