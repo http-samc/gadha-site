@@ -66,10 +66,10 @@ const Product = () => {
   return (
     <div className="relative w-screen rounded-xl border-amber-50/30 bg-amber-50/10 p-8 transition-all lg:h-[600px] lg:w-[700px] lg:border lg:backdrop-blur-sm lg:hover:backdrop-blur-md">
       <button
-        className="absolute top-2 left-3 font-mono font-bold transition-all hover:-translate-x-1"
+        className="absolute top-2 left-3 font-mono text-xl font-bold transition-all hover:scale-110"
         onClick={() => router.back()}
       >
-        {'<-'}
+        ✖
       </button>
       <div className="flex items-center justify-between font-mono text-xl lowercase lg:text-3xl">
         <h1 className="">{product?.title}</h1>
