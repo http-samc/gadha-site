@@ -1,15 +1,3 @@
 # 01. Vision
 
-| Table | Value |
-| --- | --- |
-| foo | `bar` |
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam tempus, ultrices elit vel, egestas purus. Vestibulum a turpis ligula. Integer sagittis, felis quis condimentum tempus, risus erat interdum libero, et facilisis magna arcu non turpis. Morbi sed urna lacinia nisl ornare molestie. Nam quis ex imperdiet, pellentesque diam at, viverra sapien. Ut mi nisi, consequat eget diam at, sollicitudin lacinia odio. Maecenas pretium nisl sit amet fringilla mollis. Sed iaculis neque nec risus porttitor vulputate. Duis elementum ultrices aliquet.
-
-The domestic donkey is a hoofed mammal in the family Equidae, the same family as the horse. It derives from the African wild ass, Equus africanus, and may be classified either as a subspecies thereof, Equus africanus asinus, or as a separate species, Equus asinus.[1]: 1  It was domesticated in Africa some 5000–7000 years ago,[1]: 2 [2]: 3715 [3] and has been used mainly as a working animal since that time. There are more than 40 million donkeys in the world, mostly in underdeveloped countries, where they are used principally as draught or pack animals. While working donkeys are often associated with those living at or below subsistence, small numbers of donkeys or asses are kept for breeding or as pets in developed countries. A male donkey is known as a jack or jackass, a female is a jenny or jennet,[4][5][6] and an immature donkey of either sex is a foal.[6] Jacks are often mated with female horses (mares) to produce mules; the less common hybrid of a male horse (stallion) and jenny is a hinny.
-
-Nulla quis libero eget augue porta rhoncus. Mauris nec ipsum congue, rhoncus sapien sit amet, consectetur nunc. Aenean quis vulputate ante. Ut porta scelerisque magna ac placerat. Cras quis efficitur odio. Vestibulum sagittis augue sed risus scelerisque fermentum. Aliquam vulputate ultrices odio sed mollis. Cras cursus lorem blandit orci ornare posuere.
-
-Donec ac magna a lectus dignissim congue vel quis massa. Nam venenatis venenatis nibh at tincidunt. Maecenas iaculis risus ultrices dui cursus sagittis. Nullam gravida felis ut lacus accumsan malesuada. Nullam euismod euismod sapien eu molestie. Pellentesque consectetur id elit a interdum. Suspendisse fringilla posuere lorem eu lobortis. Sed dapibus libero sapien, ac suscipit mauris efficitur vitae. Donec eu libero metus. Praesent nec ornare lacus. Aenean pulvinar nunc et dictum euismod. In sit amet vulputate sem. Duis at metus id sapien pharetra gravida. Donec fringilla non ex quis facilisis. Integer eget dapibus nunc. Suspendisse at tempus nulla.
-
-In tincidunt arcu ut felis ultrices dignissim. Ut interdum vulputate felis vitae imperdiet. Morbi vel aliquam nibh, et viverra libero. Duis sit amet tincidunt erat. Aliquam ullamcorper, ex tempor cursus aliquam, enim libero posuere odio, in pulvinar purus felis sit amet lectus. Pellentesque pellentesque elementum volutpat. Donec posuere nibh non leo cursus, non porta velit dignissim. Ut consectetur finibus nibh at dapibus. Etiam a semper ipsum. In at augue quis justo dapibus maximus quis quis nulla. Phasellus ultrices nisi pulvinar neque suscipit, id porta dui luctus.
+Chicago. Simple yet refined. Vision is our only concern. Gadha. 
