@@ -16,7 +16,7 @@ const ProductPreview = (product: ShopifyBuy.Product) => {
     >
       <div className="absolute top-0 right-0 z-10 rounded bg-amber-200 px-4">
         <p className="text-center font-mono font-semibold uppercase">
-          {product.variants[0]?.price!.split('.')[0]}
+          {(product.variants[0]?.price as any).amount}
         </p>
       </div>
       <div className="flex justify-center">

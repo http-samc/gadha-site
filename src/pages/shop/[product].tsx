@@ -73,7 +73,9 @@ const Product = () => {
       </button>
       <div className="flex items-center justify-between font-mono text-xl lowercase lg:text-3xl">
         <h1 className="">{product?.title}</h1>
-        <h3 className="text-amber-400">{product?.variants[0]?.price}</h3>
+        <h3 className="text-amber-400">
+          {(product?.variants[0]?.price as any)?.amount}
+        </h3>
       </div>
       <div className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-2">
         <div className="flex w-full flex-col items-center justify-center bg-amber-50 lg:w-1/2">
